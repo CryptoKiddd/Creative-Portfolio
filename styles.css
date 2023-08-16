@@ -10,3 +10,13 @@ canvas{
     background: black;
     position: absolute;
 }
+/* .j{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 100;
+    color: red;
+    top: -50%;
+    left: 50%;
+    
+} */
