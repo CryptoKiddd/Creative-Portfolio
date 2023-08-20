@@ -17,10 +17,10 @@ class Particle {
         this.y = Math.floor(Math.random() * this.effect.height);
         this.speedX;
         this.speedY;
-        this.speedModifier = Math.floor(Math.random()*10 -5)
+        this.speedModifier = 2
         this.history = [{ x: this.x, y: this.y }];
-        this.maxLength = 168
-        this.timer = this.maxLength * 2
+        this.maxLength = 150
+        this.timer = this.maxLength * 1.1
         this.angle = 0;
         this.colors=['#7E1AF0',"#F01AE5"]
         this.color = this.colors[Math.floor(Math.random() * this.colors.length)]
@@ -76,13 +76,13 @@ class Effect {
         this.width = width;
         this.height = height;
         this.particles = [];
-        this.numOfParticles = 1500;
+        this.numOfParticles = 1000;
         this.cellSize = 10;
         this.rows;
         this.cols;
         this.flowField = [];
-        this.curve = 2;
-        this.zoom = 0.2;
+        this.curve = 1.68;
+        this.zoom = 0.08;
         this.debug = false;
         this.init();
         window.addEventListener('keydown',e=>{
@@ -153,4 +153,8 @@ animate()
 
 setTimeout(()=>{
     canvas.remove()
-},16500)
+},7500)
+/////end of website enter visuals
+
+const canvas2 = document.getElementById('canvas2')
+const ctx2 = canvas2.getContext('2d')
