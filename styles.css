@@ -10,6 +10,9 @@ canvas{
     background: black;
     position: absolute;
 }
+#canvas1{
+    z-index: 10;
+}
 .controls{
     background-color: white;
     position: absolute;
@@ -21,10 +24,14 @@ canvas{
     
     gap: 20;
 }
-/* #range{
+#image{
+    display: none;
+}
+.main-heading{
     position: absolute;
-    border: 1px solid white;
-    width: 50px;
-    z-index: 1000;
-    background-color: white;
-} */
+    top: 50px;
+    left: 50%;
+    z-index: 100;
+    transform: translateX(-50%);
+    color: white;
+}
