@@ -4,8 +4,11 @@ canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
 
+
+
 ctx.fillStyle = 'white';
 ctx.strokeStyle = 'white'
+
 
 class Particle {
     constructor(effect) {
@@ -14,9 +17,9 @@ class Particle {
         this.y = Math.floor(Math.random() * this.effect.height);
         this.speedX;
         this.speedY;
-        this.speedModifier = 1
+        this.speedModifier = Math.floor(Math.random()*10 -5)
         this.history = [{ x: this.x, y: this.y }];
-        this.maxLength = Math.floor(Math.random() * 220 - 10);
+        this.maxLength = 168
         this.timer = this.maxLength * 2
         this.angle = 0;
         this.colors=['#7E1AF0',"#F01AE5"]
@@ -32,6 +35,7 @@ class Particle {
             context.lineTo(this.history[i].x, this.history[i].y)
         }
         context.strokeStyle = this.color
+        context.strokeWidth = 2
         context.stroke()
 
     }
@@ -56,9 +60,7 @@ class Particle {
             }
         } else if (this.history.length > 1) {
             this.history.shift()
-        } else {
-            this.reset()
-        }
+        } 
     }
     reset() {
         this.x = Math.floor(Math.random() * this.effect.width);
@@ -74,13 +76,13 @@ class Effect {
         this.width = width;
         this.height = height;
         this.particles = [];
-        this.numOfParticles = 2000;
+        this.numOfParticles = 1500;
         this.cellSize = 10;
         this.rows;
         this.cols;
         this.flowField = [];
         this.curve = 2;
-        this.zoom = 0.08;
+        this.zoom = 0.2;
         this.debug = false;
         this.init();
         window.addEventListener('keydown',e=>{
@@ -148,3 +150,7 @@ function animate() {
     requestAnimationFrame(animate)
 }
 animate()
+
+setTimeout(()=>{
+    canvas.remove()
+},16500)
